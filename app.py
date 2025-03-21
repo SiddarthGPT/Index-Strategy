@@ -32,7 +32,7 @@ def index():
             filepath = os.path.join(UPLOAD_FOLDER, file.filename)
             file.save(filepath)
 
-            df = pd.read_excel(filepath, sheet_name="Sheet1", skiprows=2)
+            df = pd.read_excel(filepath, sheet_name="Sheet1", skiprows=2, usecols="B:F", engine="openpyxl")
             df.columns = ["Index", "Date", "Open", "High", "Low", "Close", "Shares Traded", "Turnover"]
             df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
             df = df.dropna(subset=["Date", "Close"]).reset_index(drop=True)
