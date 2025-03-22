@@ -6,6 +6,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 UPLOAD_FOLDER = "uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 RESULT_FILE = "output/Backtest_Result.xlsx"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs("output", exist_ok=True)
